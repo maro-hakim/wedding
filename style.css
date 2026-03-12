@@ -687,9 +687,42 @@ footer p {
 }
 
 .copyright {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 0.85rem;
     color: #666;
+}
+
+.agency-credit {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.agency-credit p {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.agency-credit span {
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.agency-msg {
+    font-family: var(--font-body);
+    font-size: 0.9rem !important;
+}
+
+.agency-credit a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: var(--transition-smooth);
+}
+
+.agency-credit a:hover {
+    color: #fff;
 }
 
 /* ---------------------------------
