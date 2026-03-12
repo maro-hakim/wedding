@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel & Sophia - Wedding Invitation</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Player -->
+    <audio id="bgMusic" loop>
+        <source src="videoplayback.m4a">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle Background Music">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <!-- 1. Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal fade-up">
+            <h1 class="couple-names">Daniel <span>&</span> Sophia</h1>
+            <p class="invitation-line">Together with their families, they invite you to celebrate their wedding.</p>
+            <div class="wedding-details">
+                <p class="date">October 24, 2026</p>
+                <div class="divider"></div>
+                <p class="location">Paris, France</p>
+            </div>
+        </div>
+        <a href="#story" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- 2. Our Story -->
+    <section class="story" id="story">
+        <div class="container reveal fade-up">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">A journey of love, joy, and endless laughter.</p>
+            <p class="story-text">We first met under the glowing lights of a small Parisian café. What started as a shared cup of coffee blossomed into an unforgettable adventure. Through countless travels, late-night conversations, and unwavering support, we knew we had found our forever in each other.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal slide-left">
+                    <div class="timeline-icon"><i class="fas fa-coffee"></i></div>
+                    <div class="timeline-content">
+                        <h3>First Met</h3>
+                        <p>A chance encounter at a cozy coffee shop that changed our lives forever.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal slide-right">
+                    <div class="timeline-icon"><i class="fas fa-ring"></i></div>
+                    <div class="timeline-content">
+                        <h3>The Proposal</h3>
+                        <p>Under a starlit snowy night, a beautiful promise was made.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal slide-left">
+                    <div class="timeline-icon"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="timeline-content">
+                        <h3>Engagement</h3>
+                        <p>Celebrating our commitment with our closest family and friends.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal slide-right">
+                    <div class="timeline-icon"><i class="fas fa-heart"></i></div>
+                    <div class="timeline-content">
+                        <h3>Wedding Day</h3>
+                        <p>The beginning of our happily ever after.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Event Details -->
+    <section class="events" id="events">
+        <div class="container reveal fade-up">
+            <h2 class="section-title">Event Details</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-church"></i></div>
+                    <h3>Ceremony</h3>
+                    <p class="event-time">3:00 PM</p>
+                    <p class="event-location-name">Saint-Sulpice Church</p>
+                    <p class="event-address">2 Rue Palatine, 75006 Paris</p>
+                    <a href="https://maps.google.com/?q=Saint-Sulpice+Paris" target="_blank" class="btn-secondary">Directions <i class="fas fa-map-marker-alt"></i></a>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Reception</h3>
+                    <p class="event-time">6:00 PM</p>
+                    <p class="event-location-name">The Grand Hotel</p>
+                    <p class="event-address">12 Rue d'Élysée, 75008 Paris</p>
+                    <a href="https://maps.google.com/?q=12+Rue+d'Elysee+Paris" target="_blank" class="btn-secondary">Directions <i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Countdown Timer -->
+    <section class="countdown-section reveal fade-up" id="countdown">
+        <div class="countdown-overlay"></div>
+        <div class="container countdown-container">
+            <h2 class="section-title light">The Big Day</h2>
+            <div id="timer" class="timer">
+                <div class="time-block"><span id="days">00</span><p>Days</p></div>
+                <div class="time-block"><span id="hours">00</span><p>Hours</p></div>
+                <div class="time-block"><span id="minutes">00</span><p>Minutes</p></div>
+                <div class="time-block"><span id="seconds">00</span><p>Seconds</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Photo Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container reveal fade-up">
+            <h2 class="section-title">Captured Moments</h2>
+            <div class="gallery-grid">
+                <!-- Using placeholder names, script will map images -->
+                <div class="gallery-item"><img src="assets/couple_photo.png" alt="Couple Photo 1" class="gallery-img"></div>
+                <div class="gallery-item"><img src="assets/floral_detail.png" alt="Floral decor" class="gallery-img"></div>
+                <div class="gallery-item"><img src="assets/venue_photo.png" alt="Venue" class="gallery-img"></div>
+                <div class="gallery-item"><img src="assets/couple_photo.png" alt="Couple" class="gallery-img"></div>
+                <div class="gallery-item"><img src="assets/floral_detail.png" alt="Flowers" class="gallery-img"></div>
+                <div class="gallery-item"><img src="assets/venue_photo.png" alt="Venue details" class="gallery-img"></div>
+            </div>
+        </div>
+        
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </section>
+
+    <!-- 7. Contact Section -->
+    <section class="contact reveal fade-up" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">If you have any questions, feel free to reach out.</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+33 1 23 45 67 89</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>hello@danielandsophia.com</p>
+                </div>
+            </div>
+            <a href="https://wa.me/33123456789" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+        <div class="container">
+            <h3 class="footer-names">Daniel & Sophia</h3>
+            <p>We look forward to celebrating this special day with you.</p>
+            <p class="copyright">&copy; 2026 Daniel & Sophia. Crafted with love.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
