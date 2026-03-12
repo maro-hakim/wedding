@@ -53,29 +53,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicToggleBtn = document.getElementById('musicToggle');
     const toggleIcon = musicToggleBtn.querySelector('i');
     
-    // Attempt autoplay if browser allows (often blocked until interaction)
     bgMusic.volume = 0.5;
 
-    let isPlaying = false;
+    // Track state: Initially true because we set 'autoplay' and 'muted' in HTML
+    let isPlaying = true;
+    let isMuted = true;
+
+    // Set initial button state to reflect muted autoplay
+    toggleIcon.classList.remove('fa-volume-up');
+    toggleIcon.classList.add('fa-volume-mute');
+    musicToggleBtn.classList.remove('playing');
 
     const toggleMusic = () => {
-        if (isPlaying) {
-            bgMusic.pause();
+        // If it's the first time interacting, we just want to unmute it
+        if (isMuted) {
+            bgMusic.muted = false;
+            isMuted = false;
             toggleIcon.classList.remove('fa-volume-mute');
             toggleIcon.classList.add('fa-volume-up');
-            musicToggleBtn.classList.remove('playing');
-            isPlaying = false;
+            musicToggleBtn.classList.add('playing');
+            
+            // Ensure it's actually playing (some browsers might pause instead of mute)
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("Play failed:", e));
+            }
+            isPlaying = true;
         } else {
-            bgMusic.play().then(() => {
+            // Standard toggle behavior after initial unmute
+            if (isPlaying) {
+                bgMusic.pause();
                 toggleIcon.classList.remove('fa-volume-up');
                 toggleIcon.classList.add('fa-volume-mute');
-                musicToggleBtn.classList.add('playing');
-                isPlaying = true;
-            }).catch(e => {
-                console.log("Audio play prevented:", e);
-                // Reset state in case browser blocked it
+                musicToggleBtn.classList.remove('playing');
                 isPlaying = false;
-            });
+            } else {
+                bgMusic.play().then(() => {
+                    toggleIcon.classList.remove('fa-volume-mute');
+                    toggleIcon.classList.add('fa-volume-up');
+                    musicToggleBtn.classList.add('playing');
+                    isPlaying = true;
+                }).catch(e => {
+                    console.log("Audio play prevented:", e);
+                    isPlaying = false;
+                });
+            }
         }
     };
 
@@ -84,9 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleMusic();
     });
 
-    // Handle unlocking audio on first meaningful interaction anywhere on the document
+    // Handle unlocking audio/unmuting on first meaningful interaction anywhere
     const unlockAudio = () => {
-        if (!isPlaying && bgMusic.paused) {
+        if (isMuted) {
             toggleMusic();
         }
         document.removeEventListener('click', unlockAudio);
